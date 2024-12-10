@@ -11,8 +11,8 @@ def calculate_score_and_category(task):
         kesulitan_mapping = {"Sulit": 3, "Sedang": 2, "Mudah": 1}
 
         #Hitung selisih hari dari deadline ke hari ini
-        today = datetime.now().replace(hour=0, minute=0, second=0, microsecond=0)
-        deadline_date = datetime.strptime(task["Deadline"], "%Y-%m-%d")
+        today = datetime.now().replace(hour=0, minute=0, second=0, microsecond=0) #Biar fokus ke tanggal aja
+        deadline_date = datetime.strptime(task["Deadline"], "%Y-%m-%d") #strp = string parse time (memecah string menjadi blok-blok jenis waktu (hari, bulan, dst))
         days_until_deadline = (deadline_date - today).days
         deadline_score = 1 if days_until_deadline <= 0 else days_until_deadline
 
@@ -89,7 +89,7 @@ if st.button("Proses Tugas"):
         for task in tasks:
             try:
                 #Cek masing-masing tugas, valid apa enggak
-                if not isinstance(task["Judul Tugas"], str) or not task["Judul Tugas"]:
+                if not isinstance(task["Judul Tugas"], str) or task["Judul Tugas"] is None or task["Judul Tugas"] == "":
                     raise ValueError("Judul Tugas nggak valid.")
                 datetime.strptime(task["Deadline"], "%Y-%m-%d")  #Validasi format tanggal
                 if task["Prioritas"] not in ["Tinggi", "Sedang", "Rendah"]:
