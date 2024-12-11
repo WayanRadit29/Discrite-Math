@@ -41,6 +41,20 @@ def calculate_score_and_category(task):
 
 #Judul aplikasi, biar user tahu ini alat keren buat ngatur tugas!
 st.markdown("# Task Manager with Eisenhower Matrix")
+st.markdown("""
+### Apa itu Eisenhower Matrix?
+Eisenhower Matrix adalah alat manajemen waktu yang membagi tugas menjadi empat kategori:
+- **Do First:** Tugas yang mendesak dan penting, lakukan segera.
+- **Schedule:** Tugas penting tetapi tidak mendesak, jadwalkan untuk dilakukan nanti.
+- **Delegate:** Tugas yang mendesak tetapi tidak penting, delegasikan jika memungkinkan.
+- **Eliminate:** Tugas yang tidak mendesak dan tidak penting, pertimbangkan untuk dihapus.
+""")
+st.markdown("""
+### Cara Sorting Tugas
+Tugas diurutkan berdasarkan:
+1. **Kategori:** Urutan prioritas: Do First > Schedule > Delegate > Eliminate.
+2. **Skor:** Dalam setiap kategori, tugas dengan skor tertinggi ditempatkan lebih dahulu.
+""")
 
 #User bisa pilih mau input manual atau upload file CSV
 method = st.radio("Mau input data gimana nih?", ["Input Manual", "Unggah File CSV"])
